@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToReadList | Books I read or wanna</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="app.js" defer></script>
+<body>
+    <header>
+        <h1>ToReadList</h1>
+        <button id="add-book"> Add a book</button>
+    </header>
+    <main>
+        <div class="overlay">
+            <button id='close'> × </button>
+            <form class="" action="">
+
+                <div class="question">
+                    <p>
+                        <label for="title">What is the name of the book?</label>
+                    </p>
+                    <input id='title' name= "title" type="text">
+                </div>
+                <div class="question">
+                    <p>
+                        <label for="author">Who wrote it?</label>
+                    </p>
+                    <input id='author'name= "author"  type="text">
+                </div>
+                <div class="question">
+                    <p>
+                        <label for="pages">How many pages have it?</label>
+                    </p>
+                    <input id='pages' name= "pages" type="number">
+                </div>
+                <div class="question">
+                    <p> Have you read it?</p>
+                    <div class="radio">
+                        <input id='read' type="radio">
+                        <label for="read">Yes, I have.</label>
+                    </div> 
+                    <div class="radio">
+                        <input id='read' type="radio">
+                        <label for="read">No, not yet.</label>
+                    </div>
+    
+                </div>      
+                <button id="submit"> Add to library </button>     
+
+            </form>
+
+            
+        </div>
+        <div class="container ">
+            <div class="card">
+                <div class="read">Not read yet</div>
+                <h2>The Bullet Journal Method</h2>
+                <div class="author">Ryder Caroll</div>
+                <div class="pages">134 pages</div>
+            </div>
+             <div class="card">
+                <div class="read">Not read yet</div>
+                <h2>The Bullet Journal Method</h2>
+                <div class="author">Ryder Caroll</div>
+                <div class="pages">134 pages</div>
+            </div>
+             <div class="card">
+                <div class="read">Not read yet</div>
+                <h2>The Bullet Journal Method</h2>
+                <div class="author">Ryder Caroll</div>
+                <div class="pages">134 pages</div>
+            </div>
+             <div class="card">
+                <div class="read">Not read yet</div>
+                <h2>The Bullet Journal Method</h2>
+                <div class="author">Ryder Caroll</div>
+                <div class="pages">134 pages</div>
+            </div>
+             <div class="card">
+                <div class="read">Not read yet</div>
+                <h2>The Bullet Journal Method</h2>
+                <div class="author">Ryder Caroll</div>
+                <div class="pages">134 pages</div>
+            </div>
+            
+            <div class="card"></div>
+           
+            <div class="card"></div>
+        </div>
+    </main>
+    <footer>
+        <p class="signature">Cédric Adam</p>  
+    </footer>
+</body>
+</html>
