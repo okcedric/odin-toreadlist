@@ -12,8 +12,13 @@ Book.prototype.info = function (){
 let theHobbit =  new Book('The Hobbit',"J.R.R. Tolkien",295,false);
 console.log(theHobbit);
 
+let bujo = new Book('The Bullet Journal Method',"Ryder Caroll", 134,false);
 
-let myLibrary = [];
+let greta = new Book('No One Is Too Small to Make a Difference', 'Greta Thunberg', 80,false);
+
+
+let myLibrary = [theHobbit,bujo,greta];
+let libraryContainer = document.querySelector('.library');
 
 function addBookToLibrary(title,author,pages,read) {
     let newBook = new Book(title, author, pages, read);
@@ -21,8 +26,30 @@ function addBookToLibrary(title,author,pages,read) {
     return newBook.info();
 }
 
-function displayBooks(){
-    
+function displayBooks(array){
+    array.forEach(book => {
+        let card = document.createElement('div');
+        card.classList.add('card');
+        let read = document.createElement('div');
+        read.classList.add('read');
+        read.textContent= book.read;
+        let title = document.createElement('h2');
+        title.classList.add('title');
+        title.textContent= book.title; 
+        let author = document.createElement('div');
+        author.classList.add('author');
+        author.textContent= book.author;
+        let pages= document.createElement('div');
+        pages.classList.add('pages');
+        pages.textContent = `${book.pages}p.`
+        libraryContainer.appendChild(card);
+        card.appendChild(read);
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
+
+        
+    });
 }
 
 
@@ -42,3 +69,4 @@ closeOverlayButton.addEventListener('click',toggleFormOverlay);
 
 //SCRIPT
 theHobbit.info();
+displayBooks(myLibrary);
