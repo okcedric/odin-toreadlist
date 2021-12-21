@@ -21,34 +21,30 @@
                     <p>
                         <label for="title">What is the name of the book?</label>
                     </p>
-                    <input id='title' name= "title" type="text">
+                    <input id='title' name= "title" type="text" required>
                 </div>
                 <div class="question">
                     <p>
                         <label for="author">Who wrote it?</label>
                     </p>
-                    <input id='author'name= "author"  type="text">
+                    <input id='author'name= "author"  type="text" required>
                 </div>
                 <div class="question">
                     <p>
                         <label for="pages">How many pages have it?</label>
                     </p>
-                    <input id='pages' name= "pages" type="number">
+                    <input id='pages' name= "pages" type="number" required>
                 </div>
                 <div class="question">
-                    <p> Have you read it?</p>
+                
                     <div class="radio">
-                        <input id='read' type="radio">
-                        <label for="read">Yes, I have.</label>
+                        <input id='read' type="checkbox">
+                        <label for="read">I already read it </label>
                     </div> 
-                    <div class="radio">
-                        <input id='read' type="radio">
-                        <label for="read">No, not yet.</label>
-                    </div>
     
                 </div>      
-                <button id="submit"> Add to library </button>     
-
+                <button onclick = "addBookToLibrary()" id="enter"> Add to library </button>     
+                
             </form>
 
             

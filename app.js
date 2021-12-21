@@ -19,15 +19,33 @@ let greta = new Book('No One Is Too Small to Make a Difference', 'Greta Thunberg
 
 let myLibrary = [theHobbit,bujo,greta];
 let libraryContainer = document.querySelector('.library');
+let submit = document.querySelector('#enter');
 
-function addBookToLibrary(title,author,pages,read) {
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.shift(newBook);
-    return newBook.info();
+function addBookToLibrary() {
+    let title = document.querySelector('#title');
+    let author = document.querySelector('#author');
+    let pages = document.querySelector('#pages');
+    let read = document.querySelector('#read');
+    
+
+
+    let newBook = new Book(title.value, author.value, pages.value, read.checked);
+    myLibrary.unshift(newBook);
+    console.table(newBook);
+    displayBooks(myLibrary);
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.checked = false;
+
 }
 
 function displayBooks(array){
+    console.log(array);
+    libraryContainer.innerHTML = "";
+
     array.forEach(book => {
+        book.info();
         let card = document.createElement('div');
         card.classList.add('card');
         let read = document.createElement('div');
@@ -50,6 +68,8 @@ function displayBooks(array){
 
         
     });
+
+
 }
 
 
@@ -63,10 +83,10 @@ function toggleFormOverlay(){
 }
 
 
+
 addBookButton.addEventListener('click',toggleFormOverlay);
 closeOverlayButton.addEventListener('click',toggleFormOverlay);
 
 
 //SCRIPT
-theHobbit.info();
 displayBooks(myLibrary);
