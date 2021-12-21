@@ -61,7 +61,7 @@ function displayBooks(array){
         let card = document.createElement('div');
         card.classList.add('card');
         let close = document.createElement('button');
-        close.classList.add('close');
+        close.classList.add('remove');
         close.textContent = "×";
         let read = document.createElement('div');
         read.classList.add('read');
@@ -83,8 +83,8 @@ function displayBooks(array){
         div.appendChild(author);
         card.appendChild(div);
         card.appendChild(pages);
-        closeButtons = document.querySelectorAll('.close');
-        closeButtons.forEach(button => {
+        removeButtons = document.querySelectorAll('.remove');
+        removeButtons.forEach(button => {
             button.addEventListener('click', () => {
                 let card = button.parentElement;
                 remove(card);
@@ -97,7 +97,7 @@ function displayBooks(array){
 let formOverlay = document.querySelector('.overlay');
 let addBookButton = document.querySelector('header button#add-book'); 
 let closeOverlayButton = document.querySelector('#close');
-let closeButtons = document.querySelectorAll('.close');
+let removeButtons = document.querySelectorAll('.remove');
 
 function toggleFormOverlay(){
     formOverlay.classList.toggle('show');
