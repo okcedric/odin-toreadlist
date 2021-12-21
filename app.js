@@ -33,10 +33,12 @@ function addBookToLibrary() {
     myLibrary.unshift(newBook);
     console.table(newBook);
     displayBooks(myLibrary);
+    toggleFormOverlay();
     title.value = '';
     author.value = '';
     pages.value = '';
     read.checked = false;
+
 
 }
 
