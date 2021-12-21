@@ -92,6 +92,7 @@ main{
     
 }
 
+
 form{
     align-content: center;
     display: flex;
@@ -176,10 +177,25 @@ label[for='read'] {
     background-color: white;
     box-shadow: var(--shadow);
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 24rem;
     padding: 1rem;
     width: 18rem;
+}
+
+.close {
+    background-color: transparent;
+    color: #333;
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    text-align: right;
+}
+
+.close:hover{
+    background-color: tomato;
+    color: white;
+    text-align: center;
 }
 .read{
     justify-self: flex-start;
@@ -188,12 +204,14 @@ label[for='read'] {
 .pages{
     text-align: right;
 }
+
 footer{
     align-items: center;
     display: flex;
     justify-content: center;
     padding: 1rem 4rem;
 }
+
 .signature{
     font-size: 1rem;
 
