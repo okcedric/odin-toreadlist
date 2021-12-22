@@ -62,7 +62,7 @@ function displayBooks(array){
         card.classList.add('card');
         let close = document.createElement('button');
         close.classList.add('remove');
-        close.textContent = "×";
+        close.textContent = "DELETE";
         let read = document.createElement('div');
         read.classList.add('read');
         read.textContent= book.read;
@@ -71,18 +71,22 @@ function displayBooks(array){
         title.textContent= book.title; 
         let author = document.createElement('div');
         author.classList.add('author');
-        let div = document.createElement('div');
         author.textContent= book.author;
         let pages= document.createElement('div');
         pages.classList.add('pages');
-        pages.textContent = `${book.pages}p.`
+        pages.textContent = `${book.pages}p`
+        let div = document.createElement('div');
+        let buttonRack = document.createElement('div');
+        buttonRack.classList.add('button-rack');
         libraryContainer.appendChild(card);
-        card.appendChild(close);
-        card.appendChild(read);
+        div.appendChild(author);    
         div.appendChild(title);
-        div.appendChild(author);
-        card.appendChild(div);
         card.appendChild(pages);
+        card.appendChild(div);
+        buttonRack.appendChild(read);
+        buttonRack.appendChild(close);
+        card.appendChild(buttonRack);
+        
         removeButtons = document.querySelectorAll('.remove');
         removeButtons.forEach(button => {
             button.addEventListener('click', () => {

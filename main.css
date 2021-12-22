@@ -174,7 +174,9 @@ label[for='read'] {
 
 .card{
     display: flex;
-    background-color: white;
+    background-color: #333;
+    color: white;
+    border-radius: 1rem;
     box-shadow: var(--shadow);
     flex-direction: column;
     justify-content: space-between;
@@ -184,27 +186,50 @@ label[for='read'] {
 }
 
 .remove {
-    background-color: transparent;
-    color: #333;
-    font-size: 1rem;
-    padding: 1rem;
     border: none;
-    text-align: right;
+    border: 2px solid #333;
+    color: tomato;
+    background-color: #333;
+    font-size: 1rem;
+    padding: .5rem;
+    text-align: center;
+    /* width: 2rem;
+    height: 2rem; */
+    font-weight: bold;
 }
 
 .remove:hover{
-    background-color: tomato;
-    color: white;
-    text-align: center;
+    border: 2px solid tomato;
+    background: tomato;
 }
 .read{
-    justify-self: flex-start;
+    background-color: antiquewhite;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+}
+
+.book-read{
+    background-color: green;
+    
+}
+
+.author{
+    color: #FFFFFF90;
 }
 
 .pages{
     text-align: right;
+    color: #FFFFFF90;
 }
 
+.button-rack{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
 footer{
     align-items: center;
     display: flex;
