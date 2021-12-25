@@ -10,18 +10,11 @@ Book.prototype.info = function (){
 }
 
 function remove(card) {
-    let bookTitle = card.querySelector('.title').textContent;
-    let i = 0
-    myLibrary.forEach((book)=> {
-    
-        if(bookTitle == book.title){
-
-            myLibrary.splice(i,1);
-            console.log(myLibrary);
-            displayBooks(myLibrary);
-        }
-        i++;
-    });
+    let id = card.getAttribute('data-id') ;
+    console.log(myLibrary[id]);
+    console.log(id);
+    myLibrary.splice(id,1);
+    displayBooks(myLibrary);
 }
 
 
@@ -56,13 +49,15 @@ function addBookToLibrary() {
 
 function displayBooks(array){
     libraryContainer.innerHTML = "";
+    let i= 0;
     array.forEach(book => {
-        book.info();
         let card = document.createElement('div');
         card.classList.add('card');
-        let close = document.createElement('button');
-        close.classList.add('remove');
-        close.textContent = "DELETE";
+        card.setAttribute('data-id',i);
+        i++;
+        let removeButton = document.createElement('button');
+        removeButton.classList.add('remove');
+        removeButton.textContent = "DELETE";
         let read = document.createElement('div');
         read.classList.add('read');
         read.textContent= book.read;
@@ -84,16 +79,13 @@ function displayBooks(array){
         card.appendChild(pages);
         card.appendChild(div);
         buttonRack.appendChild(read);
-        buttonRack.appendChild(close);
+        buttonRack.appendChild(removeButton);
         card.appendChild(buttonRack);
-        
-        removeButtons = document.querySelectorAll('.remove');
-        removeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                let card = button.parentElement;
-                remove(card);
-            })
+        removeButton.addEventListener('click', () => {
+            let card = removeButton.parentElement.parentElement;
+            remove(card);
         })
+        
     });
 }
 
