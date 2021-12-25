@@ -1,22 +1,17 @@
-function Book(title,author,pages,read) {
+function Book(title,author,pages,isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read ? 'read' : "not read yet";  
+    this.read = isRead ? 'read' : "not read yet";  
 }
 
 Book.prototype.info = function (){
     console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
 }
 
-function remove(card) {
-    let id = card.getAttribute('data-id') ;
-    console.log(myLibrary[id]);
-    console.log(id);
-    myLibrary.splice(id,1);
-    displayBooks(myLibrary);
+Book.prototype.toggleRead = function(){
+    this.read == 'read' ? this.read = "not read yet" : this.read = "read";
 }
-
 
 
 
@@ -58,9 +53,10 @@ function displayBooks(array){
         let removeButton = document.createElement('button');
         removeButton.classList.add('remove');
         removeButton.textContent = "DELETE";
-        let read = document.createElement('div');
-        read.classList.add('read');
+        let read = document.createElement('button');
+        read.classList.add('isRead');
         read.textContent= book.read;
+        (read.textContent == 'read') ? read.classList.add('read') : read.classList.add('notYet')
         let title = document.createElement('h2');
         title.classList.add('title');
         title.textContent= book.title; 
@@ -84,9 +80,23 @@ function displayBooks(array){
         removeButton.addEventListener('click', () => {
             let card = removeButton.parentElement.parentElement;
             remove(card);
+        });
+        read.addEventListener('click',()=> {
+            let card = read.parentElement.parentElement;
+            let id = card.getAttribute('data-id');
+            myLibrary[id].toggleRead();
+
+            displayBooks(myLibrary);
         })
         
     });
+}
+function remove(card) {
+    let id = card.getAttribute('data-id');
+    console.log(myLibrary[id]);
+    console.log(id);
+    myLibrary.splice(id, 1);
+    displayBooks(myLibrary);
 }
 
 //DOM
